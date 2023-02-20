@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1dfbc35a6bd3fe429bc656b45fa6e0a, type: 3}
+  m_Name: PurpleDiamond
+  m_EditorClassIdentifier: 
+  customColor: {r: 0.5284236, g: 0, b: 0.8113208, a: 1}
+  pointsValue: 1500
+  collectedVFX: {fileID: 1800712629389540, guid: ad1aa46afd04a6942bb772aa5c443642, type: 3}
+  collectedSFX: {fileID: 8300000, guid: b4b7c190d11d00a49b322f3370c9baa7, type: 3}
