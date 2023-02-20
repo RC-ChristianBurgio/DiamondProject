@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// #REVIEW: @Christian - I'd like to change the structure of this class to be what's called 'Bottom -Up'.
+// Let's discuss in detail once you read this.
 public class ObjectController : MonoBehaviour
 {
     public SO_Object ObjectAttributes;
