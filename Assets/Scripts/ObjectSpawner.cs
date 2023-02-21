@@ -8,6 +8,7 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField] GameObject Object;
 
     [SerializeField] List<GameObject> currentObjects;
+    [SerializeField] private Vector3 spawnLocation;
 
     void Update()
     {
@@ -22,7 +23,7 @@ public class ObjectSpawner : MonoBehaviour
     public void spawnObject()
     {
         int r = Random.Range(0, pickupsToSpawn.Length);
-        var newObject = Instantiate(Object, new Vector3(0, 0.3f, 0), Quaternion.identity);
+        var newObject = Instantiate(Object, spawnLocation, Quaternion.identity);
         newObject.GetComponent<ObjectController>().ObjectAttributes = pickupsToSpawn[r]; // I hate using getComponent, heaps inefficient 
         currentObjects.Add(newObject);
     }

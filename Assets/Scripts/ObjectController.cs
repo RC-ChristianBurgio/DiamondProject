@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 // #REVIEW: @Christian - I'd like to change the structure of this class to be what's called 'Bottom -Up'.
 // Let's discuss in detail once you read this.
@@ -10,34 +11,48 @@ public class ObjectController : MonoBehaviour
 
     // Object references
     [SerializeField] private MeshRenderer mesh;
-    [SerializeField] private int points; 
-    
-    [SerializeField] private ObjectAnimator animator;
-    [SerializeField] private AudioSource audioSource;
     [SerializeField] private UIPointCounter pointCounter;
-    
+
+    [Header("Properties")]
+    [SerializeField] private float timeToDestroy = 3f;
+    [SerializeField] private float uiCounterHeightOffset = 0.8f;
+
+    [HideInInspector]public UnityEvent<float> onShrink = new UnityEvent<float>();
+    [HideInInspector]public UnityEvent onCollected = new UnityEvent();
+
+    private Vector3 CurrentPosition => transform.position;
+
     private void Start()
     {
         mesh.material.SetColor("_EmissionColor", ObjectAttributes.customColor);
-        points = ObjectAttributes.pointsValue;
     }
     void Update()
     {
-        if (Input.GetKeyDown("space")) // alternatively, use the unity event system and input system
-        {
-            StartCoroutine(animator.Shrink());
-            loadAndPlayAudioClip();
-            Instantiate(ObjectAttributes.collectedVFX);
-            UIPointCounter p = Instantiate(pointCounter, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.8f, 
-            gameObject.transform.position.z), Quaternion.identity); // Surely theres a better way to pass through values??
-            p.targetPoints = ObjectAttributes.pointsValue;
-
-        } 
+        if (Input.GetKeyDown("space")) Collected();
     }
 
-    private void loadAndPlayAudioClip()
+    private void Collected()
     {
-        audioSource.clip = ObjectAttributes.collectedSFX;
-        audioSource.PlayOneShot(ObjectAttributes.collectedSFX);
+        onShrink?.Invoke(timeToDestroy);
+        onCollected?.Invoke();
+        StartCoroutine(DestroyProcess_CR());
+        Instantiate(ObjectAttributes.collectedVFX);
+        UIPointCounter pointCounterGo = Instantiate(pointCounter, TargetVectorOffset(), Quaternion.identity);
+        pointCounterGo.targetPoints = ObjectAttributes.pointsValue;
     }
+
+   private IEnumerator DestroyProcess_CR()
+    {
+        yield return new WaitForSeconds(timeToDestroy);
+        Destroy(gameObject);
+    }
+
+    #region TOOLS
+
+    private Vector3 TargetVectorOffset()
+    {
+        return new Vector3(CurrentPosition.x, CurrentPosition.y + uiCounterHeightOffset, CurrentPosition.z);
+    }
+
+    #endregion TOOLS
 }
