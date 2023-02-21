@@ -6,7 +6,7 @@ public class ObjectAudioPlayer : EventHandler
 {
     public AudioSource audioSource;
 
-    private void Start() 
+    private new void Start() 
     {
         objectController = gameObject.GetComponentInParent<ObjectController>(); // As this is on a seperate game object, we cant override the parent start function 
         audioSource = gameObject.GetComponent<AudioSource>();

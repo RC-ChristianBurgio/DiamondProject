@@ -8,4 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  m_configObjects: {}
+  m_configObjects:
+    com.htc.upm.wave.xrsdk.xrsettings: {fileID: 11400000, guid: 66e7febc2472c0e41800dd2c3b93db44, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 27728069a5800df42b3cfdabba549901, type: 2}

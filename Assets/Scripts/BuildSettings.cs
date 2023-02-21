@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BuildSettings : MonoBehaviour
 {
-    // Removed frame rate cap 
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
