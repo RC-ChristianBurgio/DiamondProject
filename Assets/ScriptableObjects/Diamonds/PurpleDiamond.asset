@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: PurpleDiamond
   m_EditorClassIdentifier: 
   customColor: {r: 0.5284236, g: 0, b: 0.8113208, a: 1}
+  material: {fileID: 2100000, guid: 30a4033cebbbe2140ac5e0b26396b5e6, type: 2}
   pointsValue: 1500
   collectedVFX: {fileID: 1800712629389540, guid: ad1aa46afd04a6942bb772aa5c443642, type: 3}
   collectedSFX: {fileID: 8300000, guid: b4b7c190d11d00a49b322f3370c9baa7, type: 3}
+  mesh: {fileID: 1054246794967362078, guid: ecd40569baa4013498fac79dae04541e, type: 3}

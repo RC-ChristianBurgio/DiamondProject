@@ -46,8 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsText: {fileID: 5832084194262500863}
-  Canvas: {fileID: 6891099679005590511}
+  canvas: {fileID: 0}
   targetPoints: 0
+  timeToDestroy: 0.7
 --- !u!1 &6891099679005590511
 GameObject:
   m_ObjectHideFlags: 0

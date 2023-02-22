@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1dfbc35a6bd3fe429bc656b45fa6e0a, type: 3}
-  m_Name: GreenDiamond
+  m_Name: GoldRing
   m_EditorClassIdentifier: 
-  customColor: {r: 0.0710217, g: 0.7924528, b: 0.09443813, a: 1}
-  pointsValue: 750
+  customColor: {r: 0.69803923, g: 0.60784316, b: 0.03137255, a: 1}
+  material: {fileID: 2100000, guid: 4ccd1ea5db73e8a43ad0ebed3e4701cf, type: 2}
+  pointsValue: 500
   collectedVFX: {fileID: 1800712629389540, guid: ad1aa46afd04a6942bb772aa5c443642, type: 3}
-  collectedSFX: {fileID: 8300000, guid: b4b7c190d11d00a49b322f3370c9baa7, type: 3}
+  collectedSFX: {fileID: 8300000, guid: b14c4880ac119453497d1e90423d13e4, type: 3}
+  mesh: {fileID: -2432090755550338912, guid: 84f713bc869def84da6e45e8da18295e, type: 3}

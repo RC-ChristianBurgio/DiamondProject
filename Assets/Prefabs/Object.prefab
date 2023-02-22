@@ -9,12 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5314129473570036067}
-  - component: {fileID: 5314129473570036066}
-  - component: {fileID: -8248890520018659741}
-  - component: {fileID: 3494379065042465164}
+  - component: {fileID: -8948669039083995916}
   - component: {fileID: 1295562790736917455}
   - component: {fileID: 2522490594375805064}
   - component: {fileID: 1706904599316603573}
+  - component: {fileID: 6389096477843936733}
+  - component: {fileID: 1227280900621623675}
+  - component: {fileID: 5716890427574853362}
+  - component: {fileID: -5156355873995834150}
   m_Layer: 0
   m_Name: Object
   m_TagString: Untagged
@@ -38,7 +40,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5314129473570036066
+--- !u!33 &-8948669039083995916
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314129473570036065}
+  m_Mesh: {fileID: 0}
+--- !u!114 &1295562790736917455
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,29 +57,68 @@ MonoBehaviour:
   m_GameObject: {fileID: 5314129473570036065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22e0fffc6386bd544938ddc0c051a305, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d6f488cc0cdc7949a17884f412123ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectAttributes: {fileID: 0}
-  mesh: {fileID: 3494379065042465164}
-  pointCounter: {fileID: 5590957364375889855, guid: 22ddae5eb5aaba24089bf1077d2dac6e, type: 3}
-  timeToDestroy: 3
-  uiCounterHeightOffset: 0.8
-  onShrink:
-    m_PersistentCalls:
-      m_Calls: []
-  onCollected:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!33 &-8248890520018659741
-MeshFilter:
+  objectController: {fileID: 0}
+  speed: 3
+  amplitude: 0.5
+  heightOffset: 0.8
+--- !u!114 &2522490594375805064
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5314129473570036065}
-  m_Mesh: {fileID: 1054246794967362078, guid: ecd40569baa4013498fac79dae04541e, type: 3}
---- !u!23 &3494379065042465164
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc6df39c5575a04db28bccbfdfa6b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectController: {fileID: 0}
+  rotationSpeed: 0.6
+--- !u!114 &1706904599316603573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314129473570036065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a1d06bdebac894e8be41ab98d21dd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectController: {fileID: 0}
+--- !u!114 &6389096477843936733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314129473570036065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a83275fb218a844956d8a84dfa9694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectController: {fileID: 0}
+  blinkTime: 0.3
+--- !u!65 &1227280900621623675
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314129473570036065}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8, y: 1, z: 0.8}
+  m_Center: {x: 0.0009326935, y: 0.35299912, z: -0.029664367}
+--- !u!23 &5716890427574853362
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,7 +160,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1295562790736917455
+--- !u!114 &-5156355873995834150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,39 +169,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 5314129473570036065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d6f488cc0cdc7949a17884f412123ae, type: 3}
+  m_Script: {fileID: 11500000, guid: f7187bf901474eb4288afbca2f01d825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectController: {fileID: 0}
-  speed: 3
-  amplitude: 0.5
---- !u!114 &2522490594375805064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5314129473570036065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bc6df39c5575a04db28bccbfdfa6b8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectController: {fileID: 0}
-  rotationSpeed: 0.6
---- !u!114 &1706904599316603573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5314129473570036065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a1d06bdebac894e8be41ab98d21dd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectController: {fileID: 5314129473570036066}
+  ObjectAttributes: {fileID: 0}
+  pointCounter: {fileID: 5590957364375889855, guid: 22ddae5eb5aaba24089bf1077d2dac6e, type: 3}
+  spawnNode: {fileID: 0}
+  masterSpawner: {fileID: 0}
+  expiryCountdown: 10
+  blinkStart: 2
+  collectedTimeSequence: 3
+  uiCounterHeightOffset: 0.8
+  onShrink:
+    m_PersistentCalls:
+      m_Calls: []
+  onCollected:
+    m_PersistentCalls:
+      m_Calls: []
+  onExpiry:
+    m_PersistentCalls:
+      m_Calls: []
+  onUpdateUI:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9102246244046456994
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,4 +334,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectController: {fileID: 0}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 4569033953866328674}

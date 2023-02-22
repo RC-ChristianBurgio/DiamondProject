@@ -4,34 +4,46 @@ using UnityEngine;
 using Wave.Essence.Hand.StaticGesture;
 using Wave.Essence.Hand;
 using System.Linq;
+using UnityEngine.Events;
 
 public class ObjectSpawner : MonoBehaviour
 {
-    [Header("Spawning Properties")]
-    [SerializeField] int nodesToSpawn;
-    [SerializeField] float circleRadius;
-    [SerializeField] SO_Object[] objectsInCirculation;
+    [Header("Spawn Information")]
+    [SerializeField] SO_Object[] objectVariations;
     [SerializeField] List<SpawnNode> spawnLocations;
     [SerializeField] SpawnNode spawnNode;
     [SerializeField] GameObject Object;
+
+    [Header("Spawning Properties")]
+    [SerializeField] int nodesToSpawn;
+    [SerializeField] float circleRadius;
     private float circleOffset = 0.1f;
+    [SerializeField] float spawnDelay;
+    [SerializeField] int spawnCap;
 
     [Header("Spawned Objects")]
-    [SerializeField] List<GameObject> currentObjects;
-    private Vector3 ObjectSpawnLocation;
+    public List<GameObject> currentObjects;
 
     [Header("VR Properties")]
     public string defaultHand = WXRGestureHand.GetSingleHandGesture(true);
+    private bool gameStarted = false;
 
+    // UI Reference
+    [SerializeField] UIScoreValue uiScore;
+
+    [HideInInspector] public UnityEvent<int> updateObjectsUI = new UnityEvent<int>();
 
     void Update()
     {
-        //if(HandManager.Instance.GetHandGesture(false) == HandManager.GestureType.ThumbUp)
-        //{
-        //    StartGameVR();
-        //}    
+        if (gameStarted == false)
+        {
+            if (HandManager.Instance.GetHandGesture(false) == HandManager.GestureType.ThumbUp)
+            {
+                StartGameVR();
+            }
+        }
 
-        if (Input.GetKeyDown(KeyCode.S) /*&& currentObjects.Count < 3*/)
+        if (Input.GetKeyDown(KeyCode.S))
         {
             StartGameVR();
         }
@@ -39,6 +51,7 @@ public class ObjectSpawner : MonoBehaviour
 
     public void StartGameVR()
     {
+        gameStarted = true;
         Vector3 center = transform.position;
         for (int i = 0; i < nodesToSpawn; i++)
         {
@@ -47,23 +60,44 @@ public class ObjectSpawner : MonoBehaviour
             spawnLocations.Add(newNode);
             circleOffset += 0.1f;
         }
-        InvokeRepeating(nameof(spawnObjectLoop), 1f, 1.5f); // @Jack is this an okay use-case for InvokeRepeating? 
+        InvokeRepeating(nameof(spawnObjectLoop), 1f, spawnDelay); // @Jack is this an okay use-case for InvokeRepeating? 
     }
 
     private void spawnObject()
     {
-        int randomAttribute = Random.Range(0, objectsInCirculation.Length);
+        int randomAttribute = Random.Range(0, objectVariations.Length);
         if (GetRandomLocation(out int randomSpawnLocation))
         {
             var newObject = Instantiate(Object, spawnLocations[randomSpawnLocation].transform.position, Quaternion.identity);
-            newObject.GetComponent<ObjectController>().ObjectAttributes = objectsInCirculation[randomAttribute];
+            newObject.GetComponent<Object>().ObjectAttributes = objectVariations[randomAttribute];
             currentObjects.Add(newObject);
+
+            var objectScript = newObject.GetComponent<Object>();
+            objectScript.spawnNode = spawnLocations[randomSpawnLocation];
+            objectScript.masterSpawner = this;
+            spawnLocations[randomSpawnLocation].currentlyOccupied = true;
+
+            // UI 
+            updateObjectsUI?.Invoke(currentObjects.Count);
+
+            if (objectScript != null)
+            {
+                objectScript.onUpdateUI.AddListener(uiScore.GetScore);
+            }
+
+
         }
+        else return;
     }
+
+
 
     private void spawnObjectLoop() // Should i just put all the spawnObject logic here? kinda seems redundant but didnt want to cluster things
     {
-        if (currentObjects.Count == 3) return;
+        if (currentObjects.Count >= spawnCap) {
+            Debug.Log("List is full");
+                return;
+        }
         else {
             spawnObject();
         }

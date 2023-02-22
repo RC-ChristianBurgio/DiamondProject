@@ -6,10 +6,8 @@ using UnityEngine;
 public class UIPointCounter : MonoBehaviour
 {
     public TMP_Text pointsText;
-    
-    // #REVIEW: @Christian - We use camel case for all member variables, I'll share our style guide with you.
-    public GameObject Canvas;
     public float targetPoints;
+    [SerializeField] float timeToDestroy;
 
     private void Awake()
     {
@@ -28,14 +26,6 @@ public class UIPointCounter : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
-
-    // #REVIEW: @Christian - No need to wrap the Destroy call in it's own method unless that method has to perform 
-    // other critical cleanup steps. 
-    private void DestroyObject()
-    {
-        Destroy(this.gameObject);
-    }
-    
     
     public IEnumerator UpdateText_CR()
     {
@@ -44,16 +34,15 @@ public class UIPointCounter : MonoBehaviour
 
         while(t < maxTime)
         {
-            
             pointsText.text = Mathf.RoundToInt(Mathf.Lerp(0, targetPoints, t/maxTime)).ToString();
             t += Time.deltaTime;
+            transform.rotation = Quaternion.LookRotation(transform.position - Camera.main.transform.position).normalized;
             yield return new WaitForEndOfFrame();
         }
 
         pointsText.text = targetPoints.ToString();
-
-        // #REVIEW: @Christian - Let's discuss magic numbers and string literals. 
-        Invoke("DestroyObject", 0.7f);
+        yield return new WaitForSeconds(timeToDestroy);
+        Destroy(gameObject);
     }
 
 

@@ -5,11 +5,11 @@ using UnityEngine.Events;
 
 public class EventHandler : MonoBehaviour
 {
-    [HideInInspector] public ObjectController objectController;
+    [HideInInspector] public Object objectController;
 
     public virtual void Start()
     {
-        objectController = gameObject.GetComponent<ObjectController>();
+        objectController = gameObject.GetComponent<Object>();
     }
 
     // Removed the initialization of the variable for ObjectTransform

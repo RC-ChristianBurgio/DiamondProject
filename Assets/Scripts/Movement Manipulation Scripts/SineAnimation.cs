@@ -6,13 +6,12 @@ public class SineAnimation : EventHandler
     [SerializeField] private float speed;
     [SerializeField] private float amplitude;
     private float elapsedTime = 0;
-    private float startingPoint;
+    [SerializeField] private float heightOffset;
 
     public override void Start()
     {
         base.Start();
         objectController.onCollected.AddListener(KillTrigger);
-        startingPoint = transform.position.y; 
     }
 
     private void OnDestroy()
@@ -24,7 +23,7 @@ public class SineAnimation : EventHandler
     {
         float y = amplitude * Mathf.Sin(speed * elapsedTime);
         transform.position = new Vector3(transform.position.x,
-            y + startingPoint,
+            y + heightOffset,
             transform.position.z);
 
         elapsedTime += Time.deltaTime;
