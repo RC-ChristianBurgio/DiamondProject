@@ -8,7 +8,7 @@ public class UISpawnerValue : MonoBehaviour
     [SerializeField] private TextMeshProUGUI valueText;
     private void Start()
     {
-        if (spawner != null)
+        if (spawner)
         {
             spawner.updateObjectsUI.AddListener(GetObjectCount);
         }
@@ -17,6 +17,11 @@ public class UISpawnerValue : MonoBehaviour
     public void GetObjectCount(int count)
     {
         valueText.text = count.ToString();
+    }
+
+    private void OnDestroy()
+    {
+        spawner.updateObjectsUI.RemoveListener(GetObjectCount);
     }
 
 }

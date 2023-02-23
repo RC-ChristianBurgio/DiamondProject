@@ -3,27 +3,45 @@
     "m_SelectedPackage": {
         "deviceId": "FA2612R00157",
         "name": "com.DefaultCompany.DiamondTest",
-        "processId": 7998,
+        "processId": 32442,
         "exited": false
     },
     "m_SelectedPriority": 3,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "FA2622R00438",
-            "name": "com.htc.vrs.launcher",
-            "processId": 2346,
+            "name": "com.DefaultCompany.DiamondTest",
+            "processId": 9780,
+            "exited": true
+        },
+        {
+            "deviceId": "FA2622R00438",
+            "name": "com.DefaultCompany.DiamondTest",
+            "processId": 10700,
+            "exited": true
+        },
+        {
+            "deviceId": "FA2622R00438",
+            "name": "com.DefaultCompany.DiamondTest",
+            "processId": 12363,
+            "exited": true
+        },
+        {
+            "deviceId": "FA2622R00438",
+            "name": "com.DefaultCompany.DiamondTest",
+            "processId": 18844,
+            "exited": true
+        },
+        {
+            "deviceId": "FA2622R00438",
+            "name": "com.DefaultCompany.DiamondTest",
+            "processId": 20283,
             "exited": false
         },
         {
             "deviceId": "FA2622R00438",
             "name": "com.DefaultCompany.DiamondTest",
-            "processId": 4189,
-            "exited": false
-        },
-        {
-            "deviceId": "FA2622R00438",
-            "name": "com.DefaultCompany.DiamondTest",
-            "processId": 9276,
+            "processId": 21826,
             "exited": false
         },
         {
@@ -145,6 +163,12 @@
             "name": "com.DefaultCompany.DiamondTest",
             "processId": 7998,
             "exited": false
+        },
+        {
+            "deviceId": "FA2612R00157",
+            "name": "com.DefaultCompany.DiamondTest",
+            "processId": 32442,
+            "exited": false
         }
     ],
     "m_Tags": {
@@ -155,7 +179,7 @@
             },
             {
                 "m_Name": "No Filter",
-                "m_Selected": true
+                "m_Selected": false
             },
             {
                 "m_Name": "",
@@ -171,11 +195,11 @@
             },
             {
                 "m_Name": "Unity",
-                "m_Selected": false
+                "m_Selected": true
             },
             {
                 "m_Name": "CRASH",
-                "m_Selected": false
+                "m_Selected": true
             }
         ]
     },

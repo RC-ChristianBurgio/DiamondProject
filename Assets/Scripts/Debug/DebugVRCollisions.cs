@@ -10,6 +10,9 @@ public class DebugVRCollisions : MonoBehaviour
     
     void Update()
     {
-        debugText.text = handPosition.transform.position.ToString();
+        if (handPosition != null)
+        {
+            debugText.text = handPosition.transform.position.ToString();
+        }
     }
 }

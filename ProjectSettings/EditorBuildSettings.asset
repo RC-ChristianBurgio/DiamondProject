@@ -5,9 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+  - enabled: 0
+    path: Assets/Scenes/Singleplayer Scene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: fb7db4e5616aa48448716d93b8b10b03
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer Scene.unity
+    guid: 079371c5ae8605f4d9cf86dfb87ccd91
   m_configObjects:
     com.htc.upm.wave.xrsdk.xrsettings: {fileID: 11400000, guid: 66e7febc2472c0e41800dd2c3b93db44, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 27728069a5800df42b3cfdabba549901, type: 2}

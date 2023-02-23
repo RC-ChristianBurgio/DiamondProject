@@ -28,30 +28,43 @@ public class ObjectSpawner : MonoBehaviour
     public string defaultHand = WXRGestureHand.GetSingleHandGesture(true);
     private bool gameStarted = false;
 
+    // Game object reference
+    [SerializeField] private StartMatchService matchStarter;
+
     // UI Reference
     [SerializeField] UIScoreValue uiScore;
 
     [HideInInspector] public UnityEvent<int> updateObjectsUI = new UnityEvent<int>();
 
-    void Update()
-    {
-        if (gameStarted == false)
-        {
-            if (HandManager.Instance.GetHandGesture(false) == HandManager.GestureType.ThumbUp)
-            {
-                StartGameVR();
-            }
-        }
+    
 
-        if (Input.GetKeyDown(KeyCode.S))
+
+    private void Start()
+    {
+        if(matchStarter != null)
         {
-            StartGameVR();
+            matchStarter.spawnerStart.AddListener(GenerateSpawnNodes);
         }
     }
 
-    public void StartGameVR()
+    void Update()
     {
-        gameStarted = true;
+        //if (gameStarted == false)
+        //{
+        //    if (HandManager.Instance.GetHandGesture(false) == HandManager.GestureType.ThumbUp)
+        //    {
+        //        StartGameVR();
+        //    }
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.S))
+        //{
+        //    GenerateSpawnNodes();
+        //}
+    }
+
+    public void GenerateSpawnNodes()
+    {
         Vector3 center = transform.position;
         for (int i = 0; i < nodesToSpawn; i++)
         {
