@@ -3,171 +3,105 @@
     "m_SelectedPackage": {
         "deviceId": "FA2612R00157",
         "name": "com.DefaultCompany.DiamondTest",
-        "processId": 32442,
+        "processId": 31433,
         "exited": false
     },
-    "m_SelectedPriority": 3,
+    "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "FA2622R00438",
-            "name": "com.DefaultCompany.DiamondTest",
-            "processId": 9780,
-            "exited": true
-        },
-        {
-            "deviceId": "FA2622R00438",
-            "name": "com.DefaultCompany.DiamondTest",
-            "processId": 10700,
-            "exited": true
-        },
-        {
-            "deviceId": "FA2622R00438",
-            "name": "com.DefaultCompany.DiamondTest",
-            "processId": 12363,
-            "exited": true
-        },
-        {
-            "deviceId": "FA2622R00438",
-            "name": "com.DefaultCompany.DiamondTest",
-            "processId": 18844,
-            "exited": true
-        },
-        {
-            "deviceId": "FA2622R00438",
-            "name": "com.DefaultCompany.DiamondTest",
-            "processId": 20283,
+            "name": "com.htc.vrs.launcher",
+            "processId": 2332,
             "exited": false
         },
         {
             "deviceId": "FA2622R00438",
             "name": "com.DefaultCompany.DiamondTest",
-            "processId": 21826,
+            "processId": 7841,
+            "exited": true
+        },
+        {
+            "deviceId": "FA2622R00438",
+            "name": "com.DefaultCompany.DiamondTest",
+            "processId": 8468,
+            "exited": true
+        },
+        {
+            "deviceId": "FA2622R00438",
+            "name": "com.DefaultCompany.DiamondTest",
+            "processId": 8933,
+            "exited": true
+        },
+        {
+            "deviceId": "FA2622R00438",
+            "name": "com.DefaultCompany.DiamondTest",
+            "processId": 9565,
+            "exited": true
+        },
+        {
+            "deviceId": "FA2622R00438",
+            "name": "com.DefaultCompany.DiamondTest",
+            "processId": 15714,
             "exited": false
         },
         {
             "deviceId": "FA2612R00157",
             "name": "com.DefaultCompany.DiamondTest",
-            "processId": 6763,
+            "processId": 18188,
             "exited": true
         },
         {
             "deviceId": "FA2612R00157",
             "name": "com.DefaultCompany.DiamondTest",
-            "processId": 8680,
+            "processId": 18775,
             "exited": true
         },
         {
             "deviceId": "FA2612R00157",
             "name": "com.DefaultCompany.DiamondTest",
-            "processId": 15678,
+            "processId": 20734,
             "exited": true
         },
         {
             "deviceId": "FA2612R00157",
             "name": "com.DefaultCompany.DiamondTest",
-            "processId": 17109,
+            "processId": 21257,
             "exited": true
         },
         {
             "deviceId": "FA2612R00157",
             "name": "com.htc.vrs.launcher",
-            "processId": 2388,
+            "processId": 2316,
             "exited": false
         },
         {
             "deviceId": "FA2612R00157",
             "name": "com.DefaultCompany.DiamondTest",
-            "processId": 19012,
+            "processId": 24247,
             "exited": false
         },
         {
             "deviceId": "FA2612R00157",
             "name": "com.DefaultCompany.DiamondTest",
-            "processId": 20238,
+            "processId": 24997,
             "exited": false
         },
         {
             "deviceId": "FA2612R00157",
             "name": "com.DefaultCompany.DiamondTest",
-            "processId": 21411,
+            "processId": 27210,
             "exited": false
         },
         {
             "deviceId": "FA2612R00157",
             "name": "com.DefaultCompany.DiamondTest",
-            "processId": 23521,
+            "processId": 30903,
             "exited": false
         },
         {
             "deviceId": "FA2612R00157",
             "name": "com.DefaultCompany.DiamondTest",
-            "processId": 24447,
-            "exited": false
-        },
-        {
-            "deviceId": "FA2612R00157",
-            "name": "com.DefaultCompany.DiamondTest",
-            "processId": 26062,
-            "exited": false
-        },
-        {
-            "deviceId": "FA2612R00157",
-            "name": "com.DefaultCompany.DiamondTest",
-            "processId": 26805,
-            "exited": false
-        },
-        {
-            "deviceId": "FA2612R00157",
-            "name": "com.DefaultCompany.DiamondTest",
-            "processId": 28135,
-            "exited": false
-        },
-        {
-            "deviceId": "FA2612R00157",
-            "name": "com.DefaultCompany.DiamondTest",
-            "processId": 28945,
-            "exited": false
-        },
-        {
-            "deviceId": "FA2612R00157",
-            "name": "com.DefaultCompany.DiamondTest",
-            "processId": 29710,
-            "exited": false
-        },
-        {
-            "deviceId": "FA2612R00157",
-            "name": "com.DefaultCompany.DiamondTest",
-            "processId": 30844,
-            "exited": false
-        },
-        {
-            "deviceId": "FA2612R00157",
-            "name": "com.DefaultCompany.DiamondTest",
-            "processId": 1860,
-            "exited": false
-        },
-        {
-            "deviceId": "FA2612R00157",
-            "name": "com.DefaultCompany.DiamondTest",
-            "processId": 3583,
-            "exited": false
-        },
-        {
-            "deviceId": "FA2612R00157",
-            "name": "com.DefaultCompany.DiamondTest",
-            "processId": 4784,
-            "exited": false
-        },
-        {
-            "deviceId": "FA2612R00157",
-            "name": "com.DefaultCompany.DiamondTest",
-            "processId": 7998,
-            "exited": false
-        },
-        {
-            "deviceId": "FA2612R00157",
-            "name": "com.DefaultCompany.DiamondTest",
-            "processId": 32442,
+            "processId": 31433,
             "exited": false
         }
     ],

@@ -279,6 +279,8 @@ MonoBehaviour:
   syncInterval: 0.1
   go:
   - {fileID: 3615726804376434646}
+  - {fileID: 7929697652904252116}
+  - {fileID: 2182546460715321691}
   jointPoseGO:
   - {fileID: 6161680612820353986}
   - {fileID: 6161680613238416892}
@@ -312,13 +314,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0.1
-  matchTime: 60
-  startSpawner:
-    m_PersistentCalls:
-      m_Calls: []
-  startUICountdown:
-    m_PersistentCalls:
-      m_Calls: []
+  matchService: {fileID: 0}
 --- !u!1 &3615726805217649525
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,6 +600,10 @@ PrefabInstance:
       value: WaveHandRight
       objectReference: {fileID: 0}
     - target: {fileID: 5461557578058024407, guid: bffd8254fb7adc1449134b550f247693, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461557578058024407, guid: bffd8254fb7adc1449134b550f247693, type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
@@ -772,6 +772,10 @@ PrefabInstance:
     - target: {fileID: 4290063334927085526, guid: 90c076c2423553c45b67c7c0325c7b40, type: 3}
       propertyPath: m_Name
       value: WaveHandLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 4290063334927085526, guid: 90c076c2423553c45b67c7c0325c7b40, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4290063334927085526, guid: 90c076c2423553c45b67c7c0325c7b40, type: 3}
       propertyPath: m_TagString

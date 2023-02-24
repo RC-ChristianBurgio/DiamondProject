@@ -10,27 +10,35 @@ public class UITimer : NetworkBehaviour
     [SerializeField] private StartMatchService matchStarter;
     private TextMeshProUGUI timeText;
 
+    [SyncVar]
+    private float time;
+
     void Start()
     {
         timeText = gameObject.GetComponent<TextMeshProUGUI>();
-        if(matchStarter != null)
-        {
+        if (!matchStarter) return;
+        if(isServer)
             matchStarter.startUICountdown.AddListener(ExecuteCountdown);
-        }
+    }
+
+    private void Update()
+    {
+        timeText.text = Mathf.RoundToInt(time).ToString();
     }
 
     private void ExecuteCountdown(float matchTime)
     {
+        Debug.LogError("Executing");
         StartCoroutine(Countdown(matchTime));
     }
 
     private IEnumerator Countdown(float countdown)
     {
-        float endTime = 0;
-        while(countdown > endTime)
+        while(countdown > 0)
         {
-            timeText.text = Mathf.RoundToInt(countdown).ToString();
             countdown -= Time.deltaTime;
+            time = countdown;
+            yield return new WaitForEndOfFrame();
         }
         yield return new WaitForEndOfFrame();
         timeText.text = "0";

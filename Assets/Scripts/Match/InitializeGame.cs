@@ -21,13 +21,11 @@ public class InitializeGame : NetworkBehaviour
     {
         if (matchStarted) return;
         if (!isLocalPlayer) return;
-        if (!isServer) return; 
+        if (!isServer) return;
         
-        Debug.LogError("1");
-        if(HandManager.Instance.GetHandGesture(false ^ true) == HandManager.GestureType.ThumbUp || Input.GetKeyDown(KeyCode.S))
+        if(HandManager.Instance.GetHandGesture(false) == HandManager.GestureType.ThumbUp || Input.GetKeyDown(KeyCode.S))
         {
-            matchService.gameObject.SetActive(true);
-            Debug.LogError("2");
+            matchService.SendMatchData();
             matchStarted = true;
         }
     }
