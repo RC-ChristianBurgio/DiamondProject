@@ -5,8 +5,9 @@ using Wave.Essence.Hand.StaticGesture;
 using Wave.Essence.Hand;
 using System.Linq;
 using UnityEngine.Events;
+using Mirror;
 
-public class ObjectSpawner : MonoBehaviour
+public class ObjectSpawner : NetworkBehaviour
 {
     [Header("Spawn Information")]
     [SerializeField] SO_Object[] objectVariations;
@@ -24,10 +25,6 @@ public class ObjectSpawner : MonoBehaviour
     [Header("Spawned Objects")]
     public List<GameObject> currentObjects;
 
-    [Header("VR Properties")]
-    public string defaultHand = WXRGestureHand.GetSingleHandGesture(true);
-    private bool gameStarted = false;
-
     // Game object reference
     [SerializeField] private StartMatchService matchStarter;
 
@@ -36,48 +33,33 @@ public class ObjectSpawner : MonoBehaviour
 
     [HideInInspector] public UnityEvent<int> updateObjectsUI = new UnityEvent<int>();
 
-    
-
-
     private void Start()
     {
-        if(matchStarter != null)
-        {
+        NetworkClient.RegisterPrefab(Object);
+
+        if (matchStarter)
             matchStarter.spawnerStart.AddListener(GenerateSpawnNodes);
-        }
-    }
-
-    void Update()
-    {
-        //if (gameStarted == false)
-        //{
-        //    if (HandManager.Instance.GetHandGesture(false) == HandManager.GestureType.ThumbUp)
-        //    {
-        //        StartGameVR();
-        //    }
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.S))
-        //{
-        //    GenerateSpawnNodes();
-        //}
     }
 
     public void GenerateSpawnNodes()
     {
+        if (!isServer) return;
+
         Vector3 center = transform.position;
-        for (int i = 0; i < nodesToSpawn; i++)
-        {
-            Vector3 pos = RandomCircle(center, circleRadius);
-            var newNode = Instantiate(spawnNode, pos, Quaternion.identity);
-            spawnLocations.Add(newNode);
-            circleOffset += 0.1f;
-        }
+            for (int i = 0; i < nodesToSpawn; i++)
+            {
+                Vector3 pos = RandomCircle(center, circleRadius);
+                var newNode = Instantiate(spawnNode, pos, Quaternion.identity);
+                spawnLocations.Add(newNode);
+                circleOffset += 0.1f;
+            }
         InvokeRepeating(nameof(spawnObjectLoop), 1f, spawnDelay); // @Jack is this an okay use-case for InvokeRepeating? 
     }
 
     private void spawnObject()
     {
+        if (!isServer) return;
+        
         int randomAttribute = Random.Range(0, objectVariations.Length);
         if (GetRandomLocation(out int randomSpawnLocation))
         {
@@ -85,28 +67,28 @@ public class ObjectSpawner : MonoBehaviour
             newObject.GetComponent<Object>().ObjectAttributes = objectVariations[randomAttribute];
             currentObjects.Add(newObject);
 
+
             var objectScript = newObject.GetComponent<Object>();
             objectScript.spawnNode = spawnLocations[randomSpawnLocation];
             objectScript.masterSpawner = this;
             spawnLocations[randomSpawnLocation].currentlyOccupied = true;
-
-            // UI 
+            
+            // UI
             updateObjectsUI?.Invoke(currentObjects.Count);
 
-            if (objectScript != null)
-            {
+            if (objectScript)
                 objectScript.onUpdateUI.AddListener(uiScore.GetScore);
-            }
+            NetworkServer.Spawn(newObject);
 
 
         }
-        else return;
     }
-
 
 
     private void spawnObjectLoop() // Should i just put all the spawnObject logic here? kinda seems redundant but didnt want to cluster things
     {
+        if (!isServer) return;
+
         if (currentObjects.Count >= spawnCap) {
             Debug.Log("List is full");
                 return;

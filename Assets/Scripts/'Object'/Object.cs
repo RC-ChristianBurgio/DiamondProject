@@ -1,3 +1,5 @@
+using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,16 +30,15 @@ public class Object : MonoBehaviour
     [HideInInspector]public UnityEvent<int> onUpdateUI = new UnityEvent<int>();
 
 
-
     private Vector3 CurrentPosition => transform.position;
 
     private void Start()
     {
-        meshAsset = GetComponent<MeshFilter>();
-        meshRenderer = GetComponent<MeshRenderer>();
-        meshRenderer.material = ObjectAttributes.material;
-        meshRenderer.material.SetColor("_EmissionColor", ObjectAttributes.customColor);
-        meshAsset.mesh = ObjectAttributes.mesh;
+        //meshAsset = GetComponent<MeshFilter>();
+        //meshRenderer = GetComponent<MeshRenderer>();
+        //meshRenderer.material = ObjectAttributes.material;
+        //meshRenderer.material.SetColor("_EmissionColor", ObjectAttributes.customColor);
+        //meshAsset.mesh = ObjectAttributes.mesh;
       
     }
 
@@ -70,6 +71,7 @@ public class Object : MonoBehaviour
     {
         collected = true;
 
+
         StopCoroutine(ObjectExpiryCountdown()); // Not sure if i have to even stop this? 
         
         // Fire animations
@@ -77,7 +79,7 @@ public class Object : MonoBehaviour
         onCollected?.Invoke();
         
         // Start destruction 
-        StartCoroutine(DestroyProcess_CR());
+        //StartCoroutine(DestroyProcess_CR());
 
         // Spawn Particle FX
         Instantiate(ObjectAttributes.collectedVFX, gameObject.transform);
@@ -90,7 +92,7 @@ public class Object : MonoBehaviour
 
     }
 
-   private IEnumerator DestroyProcess_CR()
+    private IEnumerator DestroyProcess_CR()
     {
         yield return new WaitForSeconds(collectedTimeSequence);
         Destroy(gameObject);
@@ -98,6 +100,7 @@ public class Object : MonoBehaviour
 
     private void OnDestroy()
     {
+
         masterSpawner.currentObjects.Remove(gameObject);
         spawnNode.currentlyOccupied = false;
     }

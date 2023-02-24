@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "FA2612R00157",
         "name": "com.DefaultCompany.DiamondTest",
-        "processId": 31433,
+        "processId": 7494,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -102,6 +102,30 @@
             "deviceId": "FA2612R00157",
             "name": "com.DefaultCompany.DiamondTest",
             "processId": 31433,
+            "exited": false
+        },
+        {
+            "deviceId": "FA2612R00157",
+            "name": "com.DefaultCompany.DiamondTest",
+            "processId": 2834,
+            "exited": false
+        },
+        {
+            "deviceId": "FA2612R00157",
+            "name": "com.DefaultCompany.DiamondTest",
+            "processId": 4334,
+            "exited": false
+        },
+        {
+            "deviceId": "FA2612R00157",
+            "name": "com.DefaultCompany.DiamondTest",
+            "processId": 5617,
+            "exited": false
+        },
+        {
+            "deviceId": "FA2612R00157",
+            "name": "com.DefaultCompany.DiamondTest",
+            "processId": 7494,
             "exited": false
         }
     ],
